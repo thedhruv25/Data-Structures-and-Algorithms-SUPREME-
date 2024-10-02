@@ -1,0 +1,37 @@
+#include <iostream>
+#include <iostream>
+#include<vector>
+using namespace std;
+
+
+int checkKey(string   str,int n,int i,char  key , int count ){
+  //base case 
+  if (i >=n){
+   return count;
+   
+  }
+//1 case solve krna h 
+if(str[i]==key){
+
+ count++;
+
+}
+ 
+return checkKey(str,n,i+1,key , count);
+
+  
+}
+int main() {
+
+string str="lovebabbar";
+int n=str.length();
+  
+char key='b';
+  
+int i=0;
+int count=0;
+  count=checkKey(str,n,0,key , count);
+cout<< "No. of times " << key << "occuring is " << count <<endl;
+
+return 0;
+}
