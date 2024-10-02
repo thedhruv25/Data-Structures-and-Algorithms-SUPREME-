@@ -1,0 +1,34 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+
+
+
+bool chekSorted(vector<int> &arr,int &n,int i){
+  //base case
+  if(i==n-1){
+    return true;
+  }
+  //1 case solve krna h 
+  if(arr[i+1]<arr[i])
+    return false;
+  
+  //baaki recursion solve krega 
+  bool ans = chekSorted(arr,n,i+1);
+  return ans;
+}
+
+int main() {
+vector<int> v{2,6,7,9,10,11};
+  int n=v.size();
+  int i=0;
+  bool isSorted =chekSorted(v,n,i);
+
+  if(isSorted){
+    cout<<"Array is sorted";
+  }
+  else {
+    cout<<"Array is not sorted ";
+  }
+  return 0;
+}
