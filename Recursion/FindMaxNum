@@ -1,0 +1,60 @@
+#include <iostream>
+#include<limits.h>
+using namespace std;
+
+
+
+//int&max(REFRENCE VARIABLE= same memory  diferent locations ) //function mein lagaya kyuki PASS BY REFRENCE  se hi value aaigi pass by value se value(INT_MAIN) ari h actual number ni 
+  void findMax(int arr[],int n, int i, int& maxi){
+    
+    //base case
+    if(i>=n){
+      
+      //array agar poora khatam hogya , poora traversa hogya to 
+      //vapas aajao
+      return;
+    }
+// 1 case solve krna h
+// current element ko check kro for  max 
+    if(arr[i]>maxi){
+      maxi=arr[i];
+    }
+    //baaki recursion sambhaal lega
+    findMax(arr,n,i+1,maxi);
+    
+  }
+  void findMini(int arr[],int n, int i, int& mini){
+    
+    //base case
+    if(i>=n){
+      
+      //array agar poora khatam hogya , poora traversa hogya to 
+      //vapas aajao
+      return;
+    }
+// 1 case solve krna h
+// current element ko check kro for  max 
+  mini =min(mini,arr[i]);
+    //min in above statement is a predefined function 
+    //baaki recursion sambhaal lega
+    findMini(arr,n,i+1,mini);
+    
+  }
+int main() {
+
+
+  
+  int arr[]={12,44,71,12,45,79,8,67};
+  int n=8;
+
+  int maxi =INT_MIN;
+  int mini =INT_MAX;
+  int i=0;
+  findMax(arr,n,i,maxi);
+  findMini(arr,n,i,mini);
+
+  cout<<"Maximum number is "<<maxi<<endl;
+  cout<<"Minimum number is "<<mini<<endl;
+
+  return 0;
+}
